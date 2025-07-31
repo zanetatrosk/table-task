@@ -8,10 +8,10 @@ import { TableHeaders } from "./TableHeaders";
 
 interface CollapsibleRowProps {
   record: HierarchyRecord;
-  handleDeleteChildByParent: (childId: string) => void;
+  deleteRow: (childId: string) => void;
 }
 
-export const CollapsibleRow: FC<CollapsibleRowProps> = ({ record, handleDeleteChildByParent }) => {
+export const CollapsibleRow: FC<CollapsibleRowProps> = ({ record, deleteRow }) => {
     const [open, setOpen] = useState<boolean>(false);
     const [children, setChildren] = useState<HierarchyRecord[]>(record.children);
     const haveChildren: boolean = children && children.length > 0;
@@ -46,7 +46,7 @@ export const CollapsibleRow: FC<CollapsibleRowProps> = ({ record, handleDeleteCh
             <IconButton
               aria-label="delete"
               size="small"
-              onClick={() => handleDeleteChildByParent(record.id)}
+              onClick={() => deleteRow(record.id)}
             >
               <DeleteIcon fontSize="small" />
             </IconButton>
@@ -71,7 +71,7 @@ export const CollapsibleRow: FC<CollapsibleRowProps> = ({ record, handleDeleteCh
                           <CollapsibleRow
                             key={childRecord.id}
                             record={childRecord}
-                            handleDeleteChildByParent={handleDeleteChild}
+                            deleteRow={handleDeleteChild}
                           />
                         ))}
                       </TableBody>

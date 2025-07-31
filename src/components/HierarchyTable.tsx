@@ -34,7 +34,7 @@ export const HierarchyTable: React.FC<{ data: HierarchyData }> = ({ data }) => {
             </TableHead>
             <TableBody>
               {dataState.map((record: HierarchyRecord) => (
-                <CollapsibleRow key={record.id} record={record} handleDeleteChildByParent={() => handleDeleteRootParent(record.id)} />
+                <CollapsibleRow key={record.id} record={record} deleteRow={() => handleDeleteRootParent(record.id)} />
               ))}
             </TableBody>
           </Table>
