@@ -16,4 +16,3 @@ Then it is displayed in a table format with expandable rows for child items. The
 What could be improved:
 - there is some time spent on flattening the hierarchy data for better work experience, but could it be avoided just simply working with the given structure, on the other side this code can manipulate with json that has not unified structure, because it is taking the data and children parts into account. It would be also much better preprocess the data on the server side, so the client would not have to do it and for example send also the ids that are not duplicated.
 - the table is not paginated, so it could be a problem with large datasets
-- I spent some time to make the table efficient, so when child is deleted, the subtree is only rerendered, not the whole table.
